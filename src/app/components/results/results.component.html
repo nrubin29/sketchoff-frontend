@@ -1,0 +1,13 @@
+<div class="split">
+  <div class="side">
+    <h1>{{ player1.username }}</h1>
+    <img src="{{ player1.image }}">
+    <h2>Score: {{ player1.score }}/100</h2>
+  </div>
+  <div class="side">
+    <h1>{{ player2.username }}</h1>
+    <img src="{{ player2.image }}">
+    <h2>Score: {{ player2.score }}/100</h2>
+  </div>
+</div>
+<input type="button" class="large" value="Play Again" (click)="playAgain()">

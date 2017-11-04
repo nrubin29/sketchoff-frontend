@@ -1,0 +1,13 @@
+.split {
+  width: 100vmax;
+  height: 75vh;
+  display: flex;
+}
+
+.side {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
