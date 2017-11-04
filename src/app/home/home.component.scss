@@ -1,0 +1,14 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+input, label {
+  display: block;
+
+  &:not(:last-child) {
+    margin-bottom: 0.5em;
+  }
+}

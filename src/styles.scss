@@ -1,1 +1,50 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+  margin: 0;
+  padding: 0;
+
+  text-decoration: none;
+  outline: none;
+  font-family: 'Roboto', sans-serif;
+}
+
+body, main {
+  height: 100vh;
+}
+
+input[type="text"] {
+  padding: 0.25em;
+  text-align: center;
+
+  &.large {
+    font-size: 24px;
+  }
+}
+
+input[type="button"], input[type="submit"] {
+  padding: 0.25em;
+  border: none;
+  background: lightgray;
+  cursor: pointer;
+  transition: all 250ms ease;
+
+  &:hover {
+    background: darkgray;
+  }
+
+  &:active {
+    color: white;
+    background: black;
+  }
+
+  &.large {
+    font-size: 24px;
+  }
+}
+
+label {
+  &.large {
+    font-size: 24px;
+  }
+}
