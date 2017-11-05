@@ -20,5 +20,11 @@ export class ResultsComponent implements OnInit {
 
   playAgain() {
     this.socketService.emit(new NewGamePacket());
+    let sub = this.socketService.stream.subscribe(packet => {
+      if (packet.name == 'joinLobby') {
+        sub.unsubscribe();
+        this.router.navigate(['/lobby']);
+      }
+    });
   }
 }
