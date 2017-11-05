@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SocketService } from '../../services/socket.service';
 import { ResultsPacket } from '../../packets/results.packet';
+import { NewGamePacket } from '../../packets/new-game.packet';
 
 @Component({
   selector: 'app-results',
@@ -18,6 +19,6 @@ export class ResultsComponent implements OnInit {
   }
 
   playAgain() {
-    // TODO: Emit packet to rejoin lobby.
+    this.socketService.emit(new NewGamePacket());
   }
 }
