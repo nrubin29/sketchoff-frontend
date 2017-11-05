@@ -12,8 +12,9 @@ export class LobbyComponent implements OnInit {
   constructor(private router: Router, private socketService: SocketService) { }
 
   ngOnInit() {
-    this.socketService.stream.subscribe(packet => {
+    let sub = this.socketService.stream.subscribe(packet => {
       if (packet.name == 'match') {
+        sub.unsubscribe();
         this.router.navigate(['/match']);
       }
     });

@@ -26,8 +26,9 @@ export class DrawComponent implements OnInit {
   ngOnInit() {
     this.context = this.canvas.nativeElement.getContext("2d");
 
-    this.socketService.stream.subscribe(packet => {
+    let sub = this.socketService.stream.subscribe(packet => {
       if (packet.name == 'end') {
+        sub.unsubscribe();
         this.socketService.emit(new DrawingPacket(this.canvas.nativeElement.toDataURL("image/png")));
         this.router.navigate(['/processing']);
       }

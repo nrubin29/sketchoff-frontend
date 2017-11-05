@@ -12,8 +12,9 @@ export class ProcessingComponent implements OnInit {
   constructor(private router: Router, private socketService: SocketService) { }
 
   ngOnInit() {
-    this.socketService.stream.subscribe(packet => {
+    let sub = this.socketService.stream.subscribe(packet => {
       if (packet.name == 'results') {
+        sub.unsubscribe();
         this.router.navigate(['/results']);
       }
     });

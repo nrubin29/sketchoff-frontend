@@ -16,8 +16,9 @@ export class MatchComponent implements OnInit {
   ngOnInit() {
     this.opponent = (this.socketService.lastPacket as MatchPacket).opponent;
 
-    this.socketService.stream.subscribe(packet => {
+    let sub = this.socketService.stream.subscribe(packet => {
       if (packet.name == 'topic') {
+        sub.unsubscribe();
         this.router.navigate(['/topic']);
       }
     });

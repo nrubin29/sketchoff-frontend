@@ -18,8 +18,9 @@ export class HomeComponent implements OnInit {
 
   submitForm() {
     this.socketService.connect(this.username).then(() => {
-      this.socketService.stream.subscribe(packet => {
+      let sub = this.socketService.stream.subscribe(packet => {
         if (packet.name == 'joinLobby') {
+          sub.unsubscribe();
           this.router.navigate(['/lobby']);
         }
       });
