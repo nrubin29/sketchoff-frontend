@@ -12,6 +12,7 @@ import { ResultsComponent } from './components/results/results.component';
 import { ProcessingComponent } from './components/processing/processing.component';
 import { SocketService } from './services/socket.service';
 import { SocketGuard } from './guards/socket.guard';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { SocketGuard } from './guards/socket.guard';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
   ],
   providers: [

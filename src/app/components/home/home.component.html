@@ -1,5 +1,5 @@
 <form (submit)="submitForm()">
   <label for="name" class="large">Enter your name</label>
-  <input type="text" id="name" class="large" [(ngModel)]="username">
+  <input type="text" id="name" class="large" [(ngModel)]="username" [ngModelOptions]="{standalone: true}">
   <input type="submit" value="Play" class="large">
 </form>

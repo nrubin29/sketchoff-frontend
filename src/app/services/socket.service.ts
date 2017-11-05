@@ -3,6 +3,7 @@ import * as io from 'socket.io-client';
 import {Observable} from 'rxjs/Observable';
 import {Router} from '@angular/router';
 import { Packet } from '../packets/packet';
+import { UsernamePacket } from '../packets/username.packet';
 
 @Injectable()
 export class SocketService {
@@ -22,6 +23,8 @@ export class SocketService {
         this.router.navigate(['/']);
       });
       this.socket.on('connect', () => {
+        this.socket.emit('username', new UsernamePacket(username));
+
         this.stream = new Observable<Packet>(observer => {
           this.socket.on('packet', packet => {
             this.lastPacket = packet;

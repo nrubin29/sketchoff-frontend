@@ -13,7 +13,7 @@ export class ProcessingComponent implements OnInit {
 
   ngOnInit() {
     this.socketService.stream.subscribe(packet => {
-      if (packet.name == 'score') {
+      if (packet.name == 'results') {
         this.router.navigate(['/results']);
       }
     });

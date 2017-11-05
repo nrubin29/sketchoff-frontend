@@ -17,7 +17,7 @@ export class TopicComponent implements OnInit {
     this.topic = (this.socketService.lastPacket as TopicPacket).topic;
 
     this.socketService.stream.subscribe(packet => {
-      if (packet.name == 'next') {
+      if (packet.name == 'start') {
         this.router.navigate(['/draw']);
       }
     });

@@ -1,5 +1,5 @@
 interface PlayerData {
-  username: string;
-  image: string;
-  score: number
+  name: string;
+  score: number;
+  sketch: string;
 }

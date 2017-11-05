@@ -2,7 +2,7 @@ import { Packet } from './packet';
 
 export class DrawingPacket extends Packet {
 
-  constructor(public data: string) {
+  constructor(public sketch: string) {
     super('drawing');
   }
 }

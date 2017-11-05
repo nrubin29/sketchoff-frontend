@@ -9,15 +9,12 @@ import { ResultsPacket } from '../../packets/results.packet';
   styleUrls: ['./results.component.scss']
 })
 export class ResultsComponent implements OnInit {
-  player1: PlayerData;
-  player2: PlayerData;
+  players: PlayerData[];
 
   constructor(private router: Router, private socketService: SocketService) { }
 
   ngOnInit() {
-    let packet = this.socketService.lastPacket as ResultsPacket;
-    this.player1 = packet.player1;
-    this.player2 = packet.player2;
+    this.players = (this.socketService.lastPacket as ResultsPacket).players;
   }
 
   playAgain() {

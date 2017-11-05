@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SocketService } from '../../services/socket.service';
 
@@ -8,7 +8,7 @@ import { SocketService } from '../../services/socket.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  username: string;
+  @Input() username: string;
 
   constructor(private router: Router, private socketService: SocketService) { }
 
@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   submitForm() {
     this.socketService.connect(this.username).then(() => {
       this.socketService.stream.subscribe(packet => {
-        if (packet.name == 'next') {
+        if (packet.name == 'usernameAccepted') {
           this.router.navigate(['/lobby']);
         }
       });
